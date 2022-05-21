@@ -1,6 +1,40 @@
-let greenCharacter = document.createElement('img')
-greenCharacter.src = 'assets/green-character.gif'
-greenCharacter.style.position = 'fixed'
-greenCharacter.style.left = '100px'
-greenCharacter.style.bottom = '100px'
-document.body.append(greenCharacter)
+function newImage(source, leftpx, bottompx){
+    let newCharacter = document.createElement('img')
+    newCharacter.src = source
+    newCharacter.style.position = 'fixed'
+    newCharacter.style.left = leftpx
+    newCharacter.style.bottom = bottompx
+    document.body.append(newCharacter)
+}
+
+function newItem(source, left, bottom){
+    let item = document.createElement('img')
+    item.src = source
+    item.style.position = 'fixed'
+    item.style.left = left
+    item.style.bottom = bottom
+    document.body.append(item)
+
+    item.addEventListener('dblclick', function(){
+        item.remove()
+    })
+}
+
+newImage('assets/pine-tree.png', '450px', '200px')
+newImage('assets/green-character.gif', '100px', '100px')
+newImage('assets/tree.png', '200px', '300px')
+newImage('assets/pillar.png', '350px', '100px')
+newImage('assets/well.png', '500px', '425px')
+newImage('assets/crate.png', '150px', '200px')
+
+
+newItem('assets/sword.png', '500px', '405px')
+newItem('assets/shield.png', '165px', '185px')
+newItem('assets/staff.png', '600px', '100px')
+
+let horizon = window.innerHeight / 1.75
+let heightOfSky = window.innerHeight-horizon
+let heightOfGrass = horizon
+
+tile('assets/sky.png', 0, horizon, window.innerWidth/100, heightOfSky/100)
+tile('assets/grass.png', 0, 0, window.innerWidth/100, heightOfGrass/100)
