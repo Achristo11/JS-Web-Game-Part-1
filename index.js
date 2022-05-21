@@ -17,8 +17,27 @@ function newItem(source, left, bottom){
 
     item.addEventListener('dblclick', function(){
         item.remove()
+        let inventoryItem = document.createElement('img')
+        inventoryItem.src = source
+        inventory.append(inventoryItem)
     })
 }
+
+function newInventory(){
+    inventory.style.position = 'fixed'
+    inventory.style.bottom = '0px';
+    inventory.style.left = '0px'
+    inventory.style.width = '100%'
+    inventory.style.height = '100px'
+    inventory.style.display = 'flex'
+    inventory.style.flexDirection = 'row'
+    inventory.style.alignItems = 'center'
+    inventory.style.justifyContent = 'space-evenly'
+    inventory.style.border = '2px solid black'
+    inventory.style.backgroundColor = 'brown'
+    document.body.append(inventory)
+}
+let inventory = document.createElement('div')
 
 newImage('assets/pine-tree.png', '450px', '200px')
 newImage('assets/green-character.gif', '100px', '100px')
@@ -32,9 +51,5 @@ newItem('assets/sword.png', '500px', '405px')
 newItem('assets/shield.png', '165px', '185px')
 newItem('assets/staff.png', '600px', '100px')
 
-let horizon = window.innerHeight / 1.75
-let heightOfSky = window.innerHeight-horizon
-let heightOfGrass = horizon
+newInventory()
 
-tile('assets/sky.png', 0, horizon, window.innerWidth/100, heightOfSky/100)
-tile('assets/grass.png', 0, 0, window.innerWidth/100, heightOfGrass/100)
